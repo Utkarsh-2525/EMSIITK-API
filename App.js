@@ -19,4 +19,4 @@ app.use('/Fetch',fetch)
 app.use('/Auth',auth)
 
 
-app.listen(8000)
+app.listen(process.env.PORT)
