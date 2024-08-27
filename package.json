@@ -2,7 +2,7 @@
   "name": "erp_vrlabs",
   "version": "1.0.0",
   "description": "erp for iit kanpur virtual labs",
-  "main": "App.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js"
