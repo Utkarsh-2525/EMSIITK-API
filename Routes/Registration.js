@@ -2,7 +2,7 @@ const express = require('express')
 const registration = express.Router()
 const db = require("../DB/connection")
 const md5 = require('md5');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 let id = (Math.random() + 1).toString(36).substring(1);
 id = md5(id);
