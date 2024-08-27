@@ -4,8 +4,8 @@
   "description": "erp for iit kanpur virtual labs",
   "main": "App.js",
   "scripts": {
-    "start": "node App.js",
-    "server": "nodemon App.js"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
