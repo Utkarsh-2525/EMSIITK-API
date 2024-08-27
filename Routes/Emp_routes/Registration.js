@@ -1,6 +1,6 @@
 const express = require('express')
 const registration = express.Router()
-const db = require("../DB/connection")
+const db = require("../../DB/connection")
 const md5 = require('md5');
 const bcrypt = require('bcryptjs');
 
@@ -92,7 +92,9 @@ registration.post("/initial", (req, res) => {
 
 
 registration.post("/EMP_REG_FINAL",(req,res) =>{
-    
+
+    const {Designation,} = req.body;
+
 });
 
 

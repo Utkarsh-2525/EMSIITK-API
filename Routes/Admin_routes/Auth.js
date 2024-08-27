@@ -1,6 +1,6 @@
 const express = require('express')
 const auth = express.Router()
-const db = require("../DB/connection")
+const db = require("../../DB/connection")
 const md5 = require('md5');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
