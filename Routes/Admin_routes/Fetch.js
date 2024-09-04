@@ -2,7 +2,7 @@ const express = require('express')
 const fetch = express.Router()
 const db = require("../../DB/connection")
 const jwt = require("jsonwebtoken");
-
+const path = require("path");
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -25,7 +25,7 @@ fetch.get("/EMP_PENDING", verifyToken, (req,res) => {
 
     db.query('SELECT * FROM employee WHERE hire_status = ?', ["0"], (err,result) =>{
         if(err){
-            return res.json({ error: "1", msg: "Something went wrong!" });
+            return res.json({ error: "1", msg: "Forbidden!" });
         }else{
             return res.json({ error: "0", msg: result });
         }
@@ -45,6 +45,21 @@ fetch.get("/EMP_HIRED",verifyToken, (req,res) => {
     })
 
 });
+
+
+fetch.post("/EMP_DETAILS",verifyToken, (req,res) => {
+    const id = req.body.id;
+    console.log(id)
+    db.query('SELECT * FROM employee WHERE id = ?',[id], (err,result) =>{
+        if(err){
+            return res.json({ error: "1", msg: "Something went wrong!" });
+        }else{
+            return res.json({ error: "0", msg: result });
+        }
+    })
+
+});
+
 
 fetch.get("/Overview", verifyToken, async (req, res) => {
     try {
@@ -93,4 +108,11 @@ fetch.get("/Overview", verifyToken, async (req, res) => {
         return res.json({ error: "1", msg: "NaN" });
     }
 });
+
+fetch.get("/File", (req, res) => {
+    const url = req.query.url;
+    res.sendFile(path.join(__dirname, "../../"+url));
+    console.log(url);
+})
+
 module.exports = fetch;

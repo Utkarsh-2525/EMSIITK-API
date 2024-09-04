@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 app.use('',routes)
-app.use('/Admin/Register',reg)
+app.use('/Employee/Register',reg)
 app.use('/Admin/Fetch',fetch)
 app.use('/Admin/Auth',auth)
 
